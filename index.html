@@ -60,7 +60,7 @@
     </div>
 
     <script>
-        const isEndPage = () => (window.innerHeight + window.scrollY) >= document.body.offsetHeight
+        const isEndPage = () => (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 10)
         const banner = document.getElementById('banner');
 
         if (!isEndPage()) {
