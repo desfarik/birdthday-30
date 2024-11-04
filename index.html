@@ -5,19 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на День Рождения</title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="prefetch" href="https://desfarik.github.io/birdthday-30/assets/logo.webp"/>
+    <link rel="prefetch" href="https://desfarik.github.io/birdthday-30/assets/cats.webp"/>
+
+    <meta property="og:title" content="Приглашение на День Рождения"/>
+    <meta property="og:url" content="https://desfarik.github.io/birdthday-30/"/>
+    <meta property="og:image" content="https://desfarik.github.io/birdthday-30/assets/cats.webp"/>
 </head>
 <body>
-<img class="image" src="assets/logo.jpg">
-<div class="invite-block">
-    Дорогой друг, приглашаю тебя на мой день рождения.
-    <br>
-    Будем праздновать <span class="highlight">16&nbsp;ноября&nbsp;в&nbsp;19.00</span>.
-    <br>
-    Место напишу чуть позже.
-    <br>
-    <br>
-    Отпишись мне в телеграм о своем участии.
+<div class="content">
+    <img class="image logo-image" src="assets/logo.webp" alt="mans in sauna logo">
+    <div class="text-block invite-block">
+        Дорогой друг, приглашаю тебя на мой день рождения.
+        <br>
+        Будем праздновать <span class="highlight">16&nbsp;ноября&nbsp;в&nbsp;19.00</span>.
+        <br>
+        Место напишу чуть позже.
+        <br>
+        <br>
+        Отпишись мне в телеграм о своем участии.
+    </div>
+    <img class="image cats-image" src="assets/cats.webp" alt="two cats">
+
+    <div class="text-block">
+        Не забудь взять с собой:
+        <ul class="m-t-2">
+            <li>Банные принадлежности</li>
+            <li>Тапки</li>
+            <li>Полотенце</li>
+            <li>Халат при наличии</li>
+            <li><span class="highlight">Вторую половинку оставь дома!</span></li>
+        </ul>
+    </div>
+
+    <img class="image cats-image" src="assets/cats-angry.webp" alt="two cats angry">
+
+    <div class="text-block">
+        <div class="bold">
+            Не знаете что подарить?
+        </div>
+        <p class="italic text-center">
+            "Лучший подарок — это тот, который можно выбрать самому."
+        </p>
+        <div class="italic text-end">Конфу́ций 490 год до н. э.</div>
+    </div>
+
+    <img class="image cats-image" src="assets/cats-intim.webp" alt="two cats in sauna">
+
+    <div id="banner" class="jumping-banner hidden">
+        <svg enable-background="new 0 0 26 26" height="26px" id="Layer_1" version="1.1" viewBox="0 0 26 26" width="26px"
+             xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><polygon fill="#231F20" points="0.046,2.582 2.13,0.498 12.967,11.334 23.803,0.498 25.887,2.582 12.967,15.502  "/><polygon
+                fill="#231F20"
+                points="0.046,13.582 2.13,11.498 12.967,22.334 23.803,11.498 25.887,13.582 12.967,26.502  "/></g></svg>
+    </div>
+
+    <script>
+        const isEndPage = () => (window.innerHeight + window.scrollY) >= document.body.offsetHeight
+        const banner = document.getElementById('banner');
+
+        if (!isEndPage()) {
+            banner.classList.remove('hidden');
+        }
+
+        const trackScrolling = function () {
+            if (isEndPage()) {
+                banner.classList.add('hidden');
+                window.removeEventListener("scroll", trackScrolling)
+                banner.removeEventListener('click', scrollDown)
+            }
+        }
+
+        const scrollDown = function () {
+            const top = window.innerHeight + window.scrollY - 100;
+            window.scrollTo({
+                behavior: "smooth",
+                top: top
+            });
+        }
+
+        window.addEventListener('scroll', trackScrolling);
+
+        banner.addEventListener('click', scrollDown)
+    </script>
 </div>
-<img class="image" src="assets/ezgif.com-animated-gif-maker.gif">
 </body>
 </html>
